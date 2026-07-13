@@ -8,7 +8,7 @@ while ($true) {
     if ($status) {
         try {
             & $git add -A | Out-Null
-            & $git commit -m "Auto commit from VS Code" 2>$null | Out-Null
+            & $git commit -m "Auto commit from VS Code $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" 2>$null | Out-Null
             & $git push origin HEAD
             Write-Host "Pushed changes at $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
         }
@@ -17,5 +17,5 @@ while ($true) {
         }
     }
 
-    Start-Sleep -Seconds 10
+    Start-Sleep -Seconds 1
 }
